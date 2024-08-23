@@ -32,6 +32,7 @@ export default function Pizza(props) {
         <Card.Img variant="top" src={pizzas.img} />
         <Card.Body>
           <Card.Title>{pizzas.name}</Card.Title>
+          <Card.Text>Precio: $ {pizzas.price}</Card.Text>
             <Card.Text> 
             <ul>
             {pizzas.ingredients?.map((ingredient, index) => (
