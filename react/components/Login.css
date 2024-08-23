@@ -1,0 +1,17 @@
+.login {
+    margin: 5rem;
+    max-width: max-content;
+    font-weight: bold;
+}
+
+.recuadroLogin {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 1rem;
+}
+
+.boton {
+    margin: 1rem;
+    background-color: rgba(25, 148, 179, 0.685);
+    color: aliceblue;
+}

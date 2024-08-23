@@ -1,0 +1,11 @@
+.imagen {
+    height: 200px;
+    object-fit: none;
+    opacity: 0.2;
+}
+
+.texto {
+    margin: 40px 25%;
+    text-align: center;
+}
+
