@@ -2,10 +2,9 @@
 import Container from 'react-bootstrap/Container';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
-import Header from './Header';
-import CardPizza from './CardPizza';
 import './home.css'
 import { useEffect, useState } from "react"
+import CardPizza from '../../components/CardPizza';
 
 
 
@@ -34,7 +33,6 @@ export default function Home(props) {
 
     return (
         <div>
-            <Header />
             <Container>
                 <Row>
                     {pizzas.map(item => (

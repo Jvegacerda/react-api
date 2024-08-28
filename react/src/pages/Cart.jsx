@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 import Button from 'react-bootstrap/Button'; 
-import { cartPizza } from '../src/data/pizzas';
+import { cartPizza } from '../../src/data/pizzas';
 
 function Cart() {
   const [totalProduct, setTotalProduct] = useState(cartPizza);
