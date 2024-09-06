@@ -3,10 +3,10 @@ import Button from 'react-bootstrap/Button';
 import Card from 'react-bootstrap/Card';
 
 export default function CardPizza(props) {
-  const { name, img, ingredients, price } = props;
+  const { name, img, ingredients, price, onAddToCart } = props; 
 
   return (
-    <Card style={{ width: '25rem' }}>
+    <Card className='mt-4' style={{ width: '25rem' }}>
       <Card.Img variant="top" src={img} />
       <Card.Body>
         <Card.Title>{name}</Card.Title>
@@ -22,7 +22,7 @@ export default function CardPizza(props) {
         <hr />
         <h5 className='ms-5'>Precio: ${price}</h5>
         <Button variant="outline-dark" className="ms-5">Ver Más 👀</Button>
-        <Button variant="dark" className="ms-5">Añadir 🛒</Button>
+        <Button variant="dark" className="ms-5" onClick={onAddToCart}>Añadir 🛒</Button>
       </Card.Body>
     </Card>
   );
