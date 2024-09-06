@@ -6,6 +6,7 @@ import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
 import { Link } from 'react-router-dom';
 import { useCart } from "../src/context/cartcontext"; 
+// poner atencion a rutas que estan en subcarpetas para no perder horas en errores, no es "../context/cartcontext"
 
 function Producto() {
   const { getTotalAmount } = useCart(); 
