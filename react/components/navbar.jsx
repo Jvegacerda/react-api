@@ -5,29 +5,39 @@ import Form from 'react-bootstrap/Form';
 import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
 import { Link } from 'react-router-dom';
-import { useCart } from "../src/context/cartcontext"; 
+import { useCart } from '../src/context/cartcontext'; 
+import { useUser } from '../src/context/UserContext';
 // poner atencion a rutas que estan en subcarpetas para no perder horas en errores, no es "../context/cartcontext"
 
 function Producto() {
-  const { getTotalAmount } = useCart(); 
-  const token = false; // Simula el estado del token para cambiar entre login/profile register/logout
+  const { token, logout } = useUser(); // Extraer token y logout del contexto
+  const { getTotalAmount } = useCart();
 
   return (
-    <Navbar bg="dark" data-bs-theme="dark" expand="lg" className="bg-body-tertiary">
+    <Navbar bg="dark" expand="lg" className="bg-dark">
       <Container fluid>
-        <Navbar.Brand href="#">Pizzeria Mamma Mia!</Navbar.Brand>
+        <Navbar.Brand  className="text-danger">Pizzeria Mamma Mia!</Navbar.Brand>
         <Navbar.Toggle aria-controls="navbarScroll" />
         <Navbar.Collapse id="navbarScroll">
-          <Nav className="me-auto my-2 my-lg-0" style={{ maxHeight: '40px' }} navbarScroll>
+          <Nav className="me-auto">
             <Link to="/">
               <Button variant="outline-light" className="me-1">🍕 Home</Button>
             </Link>
-            <Button variant="outline-light" className="me-1">
-              {token === false ? ( <Link to="/login"><p>🔒 Login</p></Link>) : (<Link to="/profile"><p>🔓 Perfil</p></Link>)}
-            </Button>
-            <Button variant="outline-light" className="me-1">
-              {token === false ? (<Link to="/register"><p>🔐 Registro</p></Link>) : (<Link to="/logout"><p>🔒 Logout</p></Link>)}
-            </Button>
+            {token ? (
+              <>
+                <Link to="/profile">
+                  <Button variant="outline-light" className="me-1">🔓 Perfil</Button>
+                </Link>
+                <Button variant="outline-light" className="me-1" onClick={logout}>🔒 Logout </Button>
+              </>) : (<>
+                <Link to="/login">
+                  <Button variant="outline-light" className="me-1">🔒 Login</Button>
+                </Link>
+                <Link to="/register">
+                  <Button variant="outline-light" className="me-1">🔐 Registro</Button>
+                </Link>
+              </>
+            )}
           </Nav>
           <Form className="d-flex">
             <Link to="/cart">
@@ -41,3 +51,4 @@ function Producto() {
 }
 
 export default Producto;
+

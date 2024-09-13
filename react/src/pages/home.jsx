@@ -41,6 +41,7 @@ export default function Home(props) {
                     {pizzas.map(item => (
                         <Col key={item.id} md={4} className="mb-4">
                             <CardPizza className='card' 
+                                id={item.id}         
                                 name={item.name} 
                                 price={item.price} 
                                 ingredients={item.ingredients} 
