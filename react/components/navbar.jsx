@@ -9,14 +9,22 @@ import { useCart } from '../src/context/cartcontext';
 import { useUser } from '../src/context/UserContext';
 // poner atencion a rutas que estan en subcarpetas para no perder horas en errores, no es "../context/cartcontext"
 
+import { useNavigate } from 'react-router-dom';
+
 function Producto() {
-  const { token, logout } = useUser(); // Extraer token y logout del contexto
+  const { token, logout } = useUser();
   const { getTotalAmount } = useCart();
+  const navigate = useNavigate(); // Agrega esta línea
+
+  const handleLogout = () => {
+    logout(); // Llama a la función logout
+    navigate('/'); // Redirige al usuario a la página de inicio
+  };
 
   return (
     <Navbar bg="dark" expand="lg" className="bg-dark">
       <Container fluid>
-        <Navbar.Brand  className="text-danger">Pizzeria Mamma Mia!</Navbar.Brand>
+        <Navbar.Brand className="text-danger">Pizzeria Mamma Mia!</Navbar.Brand>
         <Navbar.Toggle aria-controls="navbarScroll" />
         <Navbar.Collapse id="navbarScroll">
           <Nav className="me-auto">
@@ -28,8 +36,10 @@ function Producto() {
                 <Link to="/profile">
                   <Button variant="outline-light" className="me-1">🔓 Perfil</Button>
                 </Link>
-                <Button variant="outline-light" className="me-1" onClick={logout}>🔒 Logout </Button>
-              </>) : (<>
+                <Button variant="outline-light" className="me-1" onClick={handleLogout}>🔒 Logout </Button> 
+              </>
+            ) : (
+              <>
                 <Link to="/login">
                   <Button variant="outline-light" className="me-1">🔒 Login</Button>
                 </Link>
@@ -50,5 +60,4 @@ function Producto() {
   );
 }
 
-export default Producto;
-
+export default Producto
