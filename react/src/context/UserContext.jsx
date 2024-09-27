@@ -21,7 +21,7 @@ export const UserProvider = ({ children }) => {
                 return null; 
             } else {
                 const errorData = await response.json();
-                return errorData.message || 'Usuario no registrado'; /// entrega mensaje de error a login.jsx
+                return errorData.message || 'Usuario no registrado'; /// entrega mensaje de error " texto " a login.jsx
             }
         } catch (err) {
             console.error('Error en el login', err);
@@ -62,7 +62,7 @@ export const UserProvider = ({ children }) => {
             const response = await fetch('/api/auth/me', {
                 method: 'GET',
                 headers: {
-                    'Authorization': `Bearer ${token}`, // Usar el token almacenado
+                    'Authorization': `Bearer ${token}`, 
                 },
             });
 

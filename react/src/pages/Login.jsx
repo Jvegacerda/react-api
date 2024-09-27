@@ -15,21 +15,17 @@ const Login = () => {
     const handleSubmit = async (e) => {
         e.preventDefault();
 
-        if (!validateEmail(email)) {
-            alert('Email no válido, ingrese nuevamente la información');
+        if (!validateEmail(email)) { alert('Email no válido, ingrese nuevamente la información');
             return;
         }
-        if (password.length < 6) {
-            alert('La contraseña debe ser mínimo de 6 caracteres');
+        if (password.length < 6) {alert('La contraseña debe ser mínimo de 6 caracteres');
             return;
         }
 
         const errorMessage = await login(email, password); 
 
-        if (!errorMessage) {
-            alert("🔓 Acceso realizado con éxito"); 
-        } else {
-            alert(`🔒 ${errorMessage}`); // Muestra error " XXX " que proviene de UserContext.jsx
+        if (!errorMessage) {alert("🔓 Acceso realizado con éxito"); 
+        } else {alert(`🔒 ${errorMessage}`); // Muestra error " texto " que proviene de UserContext.jsx
         }
     };
 
